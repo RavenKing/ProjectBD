@@ -34,11 +34,11 @@ sap.ui.jsview("competitoranalysis.Analysis", {
 					text:"Search",
 					width:"100px",
 					press: function(){
-						
+						oController.search();
 					}
 				})
 		);
-		var oPanel1 = new sap.ui.commons.Panel(this.createId("panel1Id"),{
+		var oPanel1 = new sap.ui.commons.Panel("panel1Id",{
 			text:"panel1",
 			width:"100%",
 			height:"20%",
@@ -48,7 +48,7 @@ sap.ui.jsview("competitoranalysis.Analysis", {
 			]
 			
 		});
-		var oPanel2 = new sap.ui.commons.Panel(this.createId("panel2Id"),{
+		var oPanel2 = new sap.ui.commons.Panel("panel2Id",{
 			text:"panel2",
 			width:"50%",
 			height:"35%",
@@ -64,12 +64,12 @@ sap.ui.jsview("competitoranalysis.Analysis", {
 			
 			]
 		});
-		var oPanel3 = new sap.ui.commons.Panel(this.createId("panel3Id"),{
+		var oPanel3 = new sap.ui.commons.Panel("panel3Id",{
 			text:"panel3",
 			width:"50%",
 			height:"35%"
 		});
-		var oPanel4 = new sap.ui.commons.Panel(this.createId("panel4Id"),{
+		var oPanel4 = new sap.ui.commons.Panel("panel4Id",{
 			text:"panel4",
 			width:"80%",
 			height:"30%"
