@@ -113,6 +113,7 @@ sap.ui.controller("competitoranalysis.Analysis", {
 		
 		
 	var PieChart = sap.ui.getCore().byId(this.createId("PieChart"));	
+	PieChart.removeAllFeeds();
 	PieChart.setVizType("pie");
 	
 	var oDataset = new sap.viz.ui5.data.FlattenedDataset({
