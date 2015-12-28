@@ -49,11 +49,12 @@ sap.ui.controller("competitoranalysis.Analysis", {
 			oItemTemplate3.bindProperty("text", "Name");
 			oItemTemplate3.bindProperty("key", "Name");
 			oDropboxSource.bindItems("/Source", oItemTemplate3);
+
 			
 //piechart
 
 	var oDropboxSource = sap.ui.getCore().byId(this.createId("sourceBoxId"));	
-	
+
 	
 	
 	},
