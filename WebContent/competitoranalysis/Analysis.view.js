@@ -48,7 +48,7 @@ sap.ui.jsview("competitoranalysis.Analysis", {
 			]
 			
 		});
-		var oPanel2 = new sap.ui.commons.Panel("panel2Id",{
+		var oPanel2 = new sap.ui.commons.Panel(this.createId("panel2Id"),{
 			text:"panel2",
 			width:"50%",
 			height:"35%",

@@ -53,9 +53,6 @@ sap.ui.controller("competitoranalysis.Analysis", {
 			
 //piechart
 
-	var oDropboxSource = sap.ui.getCore().byId(this.createId("sourceBoxId"));	
-
-	
 	
 	},
 
@@ -75,8 +72,10 @@ sap.ui.controller("competitoranalysis.Analysis", {
 */
 	onAfterRendering: function() {
 		
+		
+		var panelid = "#" + this.createId("panel2Id");
 		$("#panel1Id").hide();
-		$("#panel2Id").hide();
+		$(panelid).hide();
 		$("#panel3Id").hide();
 		$("#panel4Id").hide();
 
@@ -91,9 +90,80 @@ sap.ui.controller("competitoranalysis.Analysis", {
 //	}
 	
 	search:function(){
+	
+	
+	var piedata = {
+		"PieData":[
+		{
+			"City":"Shanghai",
+			"AirQuality":"300"
+		},	
+		{
+			"City":"Beijing",
+			"AirQuality":"1000"
+		},	
+		{
+			"City":"Hangzhou",
+			"AirQuality":"500"
+		}
+		]
+	};
+	var pieModel = new sap.ui.model.json.JSONModel();
+	pieModel.setData(piedata);
 		
+		
+	var PieChart = sap.ui.getCore().byId(this.createId("PieChart"));	
+	PieChart.setVizType("pie");
+	
+	var oDataset = new sap.viz.ui5.data.FlattenedDataset({
+		dimensions : [ {
+				axis : 1,
+				name : "City",
+				value : "{City}"
+			} ],
+			measures :  [{
+				name : "AirQuality",
+				value : "{AirQuality}"
+			} ],
+			data : {
+				path : "/PieData"
+			}
+	});
+	oDataset.setModel(pieModel);
+	PieChart.setDataset(oDataset);
+	
+		var feedValueAxis = new sap.viz.ui5.controls.common.feeds.FeedItem({
+                    'uid': "size",
+                    'type': "Measure",
+                    'values': ["AirQuality"]
+                }),
+       feedCategoryAxis = new sap.viz.ui5.controls.common.feeds.FeedItem({
+                    'uid': "color",
+                    'type': "Dimension",
+                    'values': ["City"]
+                });
+				PieChart.addFeed(feedValueAxis);
+				PieChart.addFeed(feedCategoryAxis);
+	
+	
+	  PieChart.setVizProperties({
+               
+                title: {
+                    visible: false,
+                }
+            });
+	
+				
+	    var oPanel = sap.ui.getCore().byId(this.createId("panel2Id"));
+	 	oPanel.removeContent(PieChart);
+	 	oPanel.addContent(PieChart);
+		//oPanel.hide();
+		
+		
+		
+		var panelid = "#" + this.createId("panel2Id");
 		$("#panel1Id").show();
-		$("#panel2Id").show();
+		$(panelid).show();
 		$("#panel3Id").show();
 		$("#panel4Id").show();
 		
