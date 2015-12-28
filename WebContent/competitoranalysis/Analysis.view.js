@@ -41,13 +41,28 @@ sap.ui.jsview("competitoranalysis.Analysis", {
 		var oPanel1 = new sap.ui.commons.Panel(this.createId("panel1Id"),{
 			text:"panel1",
 			width:"100%",
-			height:"20%"
+			height:"20%",
+			content:[
+
+			
+			]
 			
 		});
 		var oPanel2 = new sap.ui.commons.Panel(this.createId("panel2Id"),{
 			text:"panel2",
 			width:"50%",
-			height:"35%"
+			height:"35%",
+			content:[
+			new sap.viz.ui5.controls.VizFrame({  
+					    	id : this.createId("PieChart"),
+					    	width : "100%",
+					    	height : "100%"
+					    })	
+			
+			
+			
+			
+			]
 		});
 		var oPanel3 = new sap.ui.commons.Panel(this.createId("panel3Id"),{
 			text:"panel3",
