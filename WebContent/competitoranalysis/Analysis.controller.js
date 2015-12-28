@@ -5,9 +5,54 @@ sap.ui.controller("competitoranalysis.Analysis", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf competitoranalysis.Analysis
 */
-//	onInit: function() {
-//
-//	},
+	onInit: function() {
+
+	
+	var data = {
+		"Company":[
+		{"Name":"SAP"},
+		{"Name":"IBM"},
+		{"Name":"Oracle"}
+		],
+		"Field":[
+		{"Name":"Medical"},
+		{"Name":"Finance"},
+		{"Name":"Retail"}
+		],
+		"Source":[
+		{"Name":"IT专家网"},
+		{"Name":"IT商业网"} 
+		]
+	}
+	
+	var oDropbox = sap.ui.getCore().byId(this.createId("companyBoxId"));
+    var oJSONModel = new sap.ui.model.json.JSONModel();
+	oJSONModel.setData(data);
+	
+			oDropbox.setModel(oJSONModel);
+			var oItemTemplate1 = new sap.ui.core.ListItem();
+			oItemTemplate1.bindProperty("text", "Name");
+			oItemTemplate1.bindProperty("key", "Name");
+			//oItemTemplate1.bindProperty("enabled", "enabled");
+			oDropbox.bindItems("/Company", oItemTemplate1);
+	
+	var oDropboxField = sap.ui.getCore().byId(this.createId("fieldBoxId"));
+			oDropboxField.setModel(oJSONModel);
+			var oItemTemplate2 = new sap.ui.core.ListItem();
+			oItemTemplate2.bindProperty("text", "Name");
+			oItemTemplate2.bindProperty("key", "Name");
+			oDropboxField.bindItems("/Field", oItemTemplate2);
+		
+	var oDropboxSource = sap.ui.getCore().byId(this.createId("sourceBoxId"));
+			oDropboxSource.setModel(oJSONModel);
+			var oItemTemplate3 = new sap.ui.core.ListItem();
+			oItemTemplate3.bindProperty("text", "Name");
+			oItemTemplate3.bindProperty("key", "Name");
+			oDropboxSource.bindItems("/Source", oItemTemplate3);
+	
+	
+	
+	},
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
