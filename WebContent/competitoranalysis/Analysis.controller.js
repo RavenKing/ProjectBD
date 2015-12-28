@@ -68,9 +68,14 @@ sap.ui.controller("competitoranalysis.Analysis", {
 * This hook is the same one that SAPUI5 controls get after being rendered.
 * @memberOf competitoranalysis.Analysis
 */
-//	onAfterRendering: function() {
-//
-//	},
+	onAfterRendering: function() {
+		
+		$("#panel1Id").hide();
+		$("#panel2Id").hide();
+		$("#panel3Id").hide();
+		$("#panel4Id").hide();
+
+	},
 
 /**
 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
@@ -79,5 +84,44 @@ sap.ui.controller("competitoranalysis.Analysis", {
 //	onExit: function() {
 //
 //	}
+	
+	search:function(){
+		
+		$("#panel1Id").show();
+		$("#panel2Id").show();
+		$("#panel3Id").show();
+		$("#panel4Id").show();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 });
