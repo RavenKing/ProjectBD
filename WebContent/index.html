@@ -10,19 +10,24 @@
 				data-sap-ui-libs="sap.ui.commons,sap.m,sap.viz"
 				data-sap-ui-theme="sap_bluecrystal">
 		</script>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css">
 		<!-- add sap.ui.table,sap.ui.ux3 and/or other libraries to 'data-sap-ui-libs' if required -->
 
 		<script>
 				sap.ui.localResources("competitoranalysis");
-				var view = sap.ui.view({id:"idAnalysis1", viewName:"competitoranalysis.Analysis", type:sap.ui.core.mvc.ViewType.JS});
-				//view.placeAt("content");
+				var view = sap.ui.view({id:"idAnalysisView", viewName:"competitoranalysis.Analysis", type:sap.ui.core.mvc.ViewType.JS});
 				
 				var app = new sap.m.App("appId",{initialPage:view});
-				app.addPage(view);
-				var shell = new sap.m.Shell({
-					app: app
-				});
-				shell.placeAt("content");
+			    app.addPage(view);
+			    
+			    var shell = new sap.m.Shell("shellId",{			    	
+			    	app:app			    	
+			    });
+			    shell.placeAt("content");
+			    
+			    
+			    
+				
 		</script>
 
 	</head>
